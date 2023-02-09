@@ -1,3 +1,5 @@
+import Form from 'react-bootstrap/Form'
+import Button from "react-bootstrap/Button"
 import { useState, useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../App"
@@ -10,6 +12,7 @@ export default function SignupForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         // make a post request to the API with the form data
+        // https://
         fetch("https://auth-api-br.web.app/signup", {
             method: "POST",
             headers: { 
@@ -33,15 +36,58 @@ export default function SignupForm() {
 
     }
     return (
+        <>
         <form onSubmit={handleSubmit}>
-            <label htmlFor="email">Email &nbsp;
-                <input type ="email" name="email" value={email} onChange={e => setEmail(e.target.value)}/>
+            <Form.Group>
+                <Form.Label>Email</Form.Label>
+                <Form.Control 
+                name="email"
+                type="email" 
+                placeholder='Enter Email'
+                value={email}
+                onChange={e => setEmail(e.target.value)} />
 
-            </label><br />
+            <label htmlFor="email">Email &nbsp;
+                <input 
+                type ="email" 
+                name="email" 
+                value={email} 
+                onChange={e => setEmail(e.target.value)}/> 
+            
+            </label>
+            </Form.Group>
+
+            <Form.Group>
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                    name="password"
+                    type="password"
+                    placeholder='Password'
+                    value={password}
+                    onChange={ e => setPassword(e.target.value)} />
             <label htmlFor="password">Password &nbsp;
-                <input type ="password" name="password" value={password} onChange={e => setPassword(e.target.value)}/>
-            </label><br />
-            <input type="submit" value="Sign Up" />
+            <input
+                type='password'
+                name= 'pasword'
+                value={password}
+                onChange={ e => setPassword(e.target.value)} />
+                </label>
+            
+            </Form.Group>
+
+                <Button
+                    variant='primary'
+                    type='submit'
+                    size="lg">Submit</Button>
+                    <input
+                    type='submit'
+                    value='submit' />
+            
+            
+            <input 
+            type="submit"
+            value="submit" />
         </form>
+        </>
     )
 }
