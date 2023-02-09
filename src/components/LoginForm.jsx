@@ -1,10 +1,11 @@
+
 import Form from 'react-bootstrap/Form'
 import Button from "react-bootstrap/Button"
 import { useState, useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../App"
 
-export default function SignupForm() {
+export default function LoginForm() {
     const [email, setEmail] = useState(' ')
     const [password, setPassword] = useState(' ')
     const { setUser } = useContext(AuthContext)
@@ -71,6 +72,7 @@ export default function SignupForm() {
                     type='submit'
                     size="lg" 
                     className='mt-3 hover-effect' >Submit</Button>
+               
                  
         </form>
         </>
